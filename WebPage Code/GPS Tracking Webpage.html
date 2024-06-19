@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Bike</title>
+<style>
+body {
+font-family: "Quicksand", sans-serif;
+background-color: #f4f4f4;
+margin: 0;
+padding: 20px;
+text-align: center;
+background-color: #212529;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+}
+.container {
+background-color: rgba(222, 226, 230, 0.2);
+max-width: 600px;
+margin: auto;
+padding: 20px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
+h2 {
+color: #f4f4f4;
+}
+#bikeLocation {
+font-size: 18px;
+margin-bottom: 20px;
+padding: 10px;
+background-color: #989797df;
+border-radius: 5px;
+color: white;
+}
+button {
+background-color: #007bff;
+color: white;
+border: none;
+padding: 10px 20px;
+margin: 20px 0;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+transition: background-color 0.3s;
+}
+button:hover {
+background-color: #0056b3;
+}
+#map {
+height: 400px;
+margin-bottom: 20px;
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?
+family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<script>
+let map;
+let bikeMarker;
+async function fetchBikeLocation() {
+const apiKey = 'T6SU3FJS00000000'; //Enter your ApiKey
+const channelId = '0000000'; //Enter your channel ID
+const url = `https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=$
+{apiKey}&results=1`;
+try {
+const response = await fetch(url);
+const data = await response.json();
+const latestFeed = data.feeds[0];
+const lat = parseFloat(latestFeed.field1);
+const lng = parseFloat(latestFeed.field2);
+updateMap(lat, lng);
+document.getElementById("bikeLocation").innerText = `Latitude: ${lat}, Longitude: ${lng}
+`;
+} catch (error) {
+console.error('Error fetching data from ThingSpeak:', error);
+}
+}
+function initMap() {
+const initialLocation = { lat: 20.09639, lng: 73.75902 };
+map = new google.maps.Map(document.getElementById("map"), {
+center: initialLocation,
+zoom: 15,
+});
+bikeMarker = new google.maps.Marker({
+position: initialLocation,
+map: map,
+title: "Bike Location",
+icon: {
+url: "bike-icon.png",
+scaledSize: new google.maps.Size(35, 35),
+},
+});
+fetchBikeLocation();
+}
+function updateMap(lat, lng) {
+const bikeLocation = { lat, lng };
+map.setCenter(bikeLocation);
+bikeMarker.setPosition(bikeLocation);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?
+key=AIzaSyAHSfB0000000000000000000000000000&callback=initMap" async defer></script> 
+</head>
+<body>
+<div class="container">
+<h2>Track Bike</h2>
+<div id="bikeLocation"></div>
+<div id="map"></div>
+</div>
+</body>
+</html>
