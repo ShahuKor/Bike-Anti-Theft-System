@@ -33,13 +33,13 @@ https://www.ijirmps.org/research-paper.php?id=230386
 - **Programming Languages**: C++
 
 ## Some Snapshots and Diagrams related to the project
-1. **Activity Diagram:
+1. **Activity Diagram:**
    ![image](https://github.com/user-attachments/assets/f7439e2c-689a-4e5a-b9f4-ebb8b3480538)
 
-2. **Project Module Design:
+2. **Project Module Design:**
    <img width="491" alt="image" src="https://github.com/user-attachments/assets/aac533b0-5094-41ca-9bf9-0824118f854a">
 
-3. **Board Architecture:
+3. **Board Architecture:**
    ![image](https://github.com/user-attachments/assets/fbdf4b0b-d8a5-4db3-92bb-89a28c91d740)
 
 
