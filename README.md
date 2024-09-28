@@ -33,8 +33,21 @@ https://www.ijirmps.org/research-paper.php?id=230386
 - **Programming Languages**: C++
 
 ## Some Snapshots and Diagrams related to the project
-1. **Activity Diagram:**
-   ![board](https://github.com/user-attachments/assets/2b218309-4592-480e-baef-0888dd76665c)
+1. **Activity Diagram**
+   ![activity](https://github.com/user-attachments/assets/3ff85158-2a23-443f-ad70-b1fa24c3c025)
+
+2. **Project Module**
+   ![Project Modeul](https://github.com/user-attachments/assets/3cd053e6-31f2-4a0e-99e6-1a833291e684)
+
+3. **Board Architecture**
+   ![board](https://github.com/user-attachments/assets/54f83d9c-5551-4aae-94b4-ae06a7aacc16)
+
+4. **Complete System View**
+   ![complete view](https://github.com/user-attachments/assets/a681571d-4899-4818-92ea-2ebe38f70d9a)
+
+
+
+
 
 
 
